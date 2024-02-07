@@ -1,0 +1,2 @@
+#判断直接扫描URL还是通过调用OTX接口查询的历史URL作为扫描目标
+history_switch = 0
