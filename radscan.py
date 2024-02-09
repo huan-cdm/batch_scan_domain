@@ -5,9 +5,20 @@ Date:[2024/02/07]
 """
 from config import history_switch
 import subprocess
+from scan_lib import scandomain
 
 def ergodic_target():
-    for line in open("./target.txt"):
+    if int(history_switch) == 0:
+        file = "./url.txt"
+        print("正在通过RAD扫描用户输入URL......")
+    elif int(history_switch) ==1:
+        print("正在调用OTX查询历史URL......")
+        scandomain()
+        file = "./result.txt"
+        print("正在通过RAD扫描历史URL......")
+    else:
+        print("配置文件history_switch字段只允许0/1")
+    for line in open(file):
         line = line.replace("\n","")
         command = ["./start.sh", "startrad", line]
         #启动子进程  
@@ -27,9 +38,4 @@ def ergodic_target():
 
 
 if __name__ == "__main__":
-    if int(history_switch) == 0:
-        ergodic_target()
-    elif int(history_switch) == 1:
-        print("111")
-    else:
-        print("配置文件history_switch字段只允许0/1")
+    ergodic_target()
