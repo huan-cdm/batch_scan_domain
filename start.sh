@@ -16,4 +16,10 @@ case "${1}" in
     # 打印出生成的文件名  
     echo "HTML output saved to $OUTPUT_FILE"
     ;;
+
+    #开启xray报告访问服务
+    reportserver)
+    cd /TIP/batch_scan_domain/report
+    python3 -m http.server 8081 --bind 127.0.0.1 &
+    ;;
 esac
