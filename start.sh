@@ -23,4 +23,16 @@ case "${1}" in
     cd /TIP/batch_scan_domain/report
     python3 -m http.server 8081 --bind 127.0.0.1 &
     ;;
+
+    #关闭xray报告访问服务
+    stopreportserver)
+    pidd=`ps -aux | grep 8081 |awk -F " " '{print $2}'`
+    
+    for ii in ${pidd}
+	do
+		echo ".正在结束进程${ii}"
+		kill -9 ${ii}
+		sleep 0.1s
+	done
+    ;;
 esac
