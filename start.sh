@@ -1,4 +1,10 @@
 #! /bin/bash
+ if [ "$1" == "-h" ]; then  
+    echo "启动rad：bash start.sh startrad"  
+    echo "启动xray：bash start.sh startxray"  
+    exit 0  #退出脚本，如果不需要执行其他命令的话  
+fi  
+
 case "${1}" in
     #调用rad
     startrad)
