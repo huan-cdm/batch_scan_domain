@@ -8,7 +8,7 @@ from url_lib import urlinfo
 
 
 def scandomain():
-    domain_file = open('./url.txt',encoding='utf-8')
+    domain_file = open('/TIP/batch_scan_domain/url.txt',encoding='utf-8')
     url_list = []
     try:
         for line in domain_file.readlines():

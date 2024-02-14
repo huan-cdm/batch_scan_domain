@@ -7,7 +7,7 @@ from fake_useragent import UserAgent
 from tqdm import tqdm  
 import time   
   
-def urlinfo(domain_list, output_file='./result.txt'):  
+def urlinfo(domain_list, output_file='/TIP/batch_scan_domain/result.txt'):  
     UA = UserAgent()  
     print("开始获取域名信息...")  
   
