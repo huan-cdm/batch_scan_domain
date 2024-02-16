@@ -4,7 +4,6 @@ Date:[2024/01/12]
 '''
 import requests  
 from fake_useragent import UserAgent
-from tqdm import tqdm  
 import time   
   
 def urlinfo(domain_list, output_file='/TIP/batch_scan_domain/result.txt'):  
@@ -12,8 +11,8 @@ def urlinfo(domain_list, output_file='/TIP/batch_scan_domain/result.txt'):
     print("开始获取域名信息...")  
   
     #打开文件用于写入  
-    with open(output_file, 'w', encoding='utf-8') as file:  
-        for domain in tqdm(domain_list, desc="遍历域名"):  
+    with open(output_file, 'w', encoding='utf-8') as file:
+        for domain in domain_list:
             time.sleep(3)  
             url = "https://otx.alienvault.com/api/v1/indicators/domain/" + domain + "/url_list?limit=500&page=1"  
             headers={
