@@ -18,7 +18,8 @@ case "${1}" in
     TIMESTAMP=$(date +"%Y%m%d%H%M%S")  
     #拼接文件名  
     OUTPUT_FILE="./report/xray-testphp-${TIMESTAMP}.html" 
-    ./xray_engine/xray_linux_amd64 webscan --listen 127.0.0.1:7777 --html-output "$OUTPUT_FILE"
+    #./xray_engine/xray_linux_amd64 webscan --listen 127.0.0.1:7777 --html-output "$OUTPUT_FILE"
+    nohup ./xray_engine/xray_linux_amd64 webscan --listen 127.0.0.1:7777 --html-output "$OUTPUT_FILE" > /dev/null 2>&1 &
     # 打印出生成的文件名  
     echo "HTML output saved to $OUTPUT_FILE"
     ;;
